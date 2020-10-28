@@ -13,7 +13,7 @@ class Server {
     start() {
         return new Promise(resolve => {
             _express.listen(_config.PORT, () => {
-                console.log(_config.APPLICATION_NAME + "API runing on port" + _config.PORT)
+                console.log(_config.APPLICATION_NAME + " runing on port " + _config.PORT)
                 resolve();
             });
         });
