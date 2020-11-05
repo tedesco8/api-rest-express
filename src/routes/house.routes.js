@@ -7,7 +7,7 @@ module.exports = function({ HouseController }) {
   router.get("", [ParseIntMiddleware], HouseController.getAll);
   router.get("/:houseId", HouseController.get);
   router.get("/:userId/all", HouseController.getUserHouses);
-  router.post("", HouseController.create);
+  router.post("", AuthMiddleware, HouseController.create);
   router.patch("/:houseId", AuthMiddleware, HouseController.update);
   router.delete("/:houseId", AuthMiddleware, HouseController.delete);
   router.post("/:houseId/upvote", AuthMiddleware, HouseController.upvoteHouse);
