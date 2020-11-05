@@ -1,4 +1,5 @@
 module.exports = {
-    User: require('./user.model'),
-    Home: require('./home.model')
+  User: require("./user.model"),
+  House: require("./house.model"),
+  Comment: require("./comment.model")
 };

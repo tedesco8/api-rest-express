@@ -1,30 +1,24 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 const { compareSync, hashSync, genSaltSync } = require("bcryptjs");
 
 const UserSchema = new Schema({
-  name: { type: String, maxlength:20, required: true },
-  surname: { type: String, maxlength:20, required: true },
-  rol: { type: String, default: "Usuario" },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  image: { type: String, required: false },
-  estado: { type: Number, enum: [1, 2, 3], default: 1 },
-  create_At: { type: Date, default: Date.now },
+  name: { type: String, required: true },
+  username: { type: String, required: true },
+  password: { type: String, required: true }
 });
 
-UserSchema.methods.toJSON = function () {
+UserSchema.methods.toJSON = function() {
   let user = this.toObject();
   delete user.password;
   return user;
 };
 
-UserSchema.methods.comparePasswords = function (password) {
+UserSchema.methods.comparePasswords = function(password) {
   return compareSync(password, this.password);
 };
 
-UserSchema.pre("save", async function (next) {
+UserSchema.pre("save", async function(next) {
   const user = this;
 
   if (!user.isModified("password")) {
