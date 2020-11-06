@@ -1,0 +1,43 @@
+module.exports = {
+  house: {
+    _id: "5fa37baaa719d4282775b463",
+    title: "prueba title 1",
+    description: "prueba descripcion324",
+    author: "5fa37baaa719d4282775b463",
+    start: "4",
+    location: "Montevideo",
+    price: "400",
+    mts: "40",
+    bed_rooms: 2,
+    bath_rooms: 2,
+    wifi: true,
+  },
+  houses: [
+    {
+      _id: "5fa5c5734f81a8758025b3a1",
+      title: "prueba title 2",
+      description: "prueba descripcion324",
+      author: "5fa37baaa719d4282775b463",
+      start: "4",
+      location: "Montevideo",
+      price: "400",
+      mts: "40",
+      bed_rooms: 2,
+      bath_rooms: 2,
+      wifi: true,
+    },
+    {
+      _id: "507f191e810c19729de860ez",
+      title: "prueba title 3",
+      description: "prueba descripcion324",
+      author: "5fa37baaa719d4282775b463",
+      start: "4",
+      location: "Montevideo",
+      price: "400",
+      mts: "40",
+      bed_rooms: 2,
+      bath_rooms: 2,
+      wifi: true,
+    },
+  ]
+};
