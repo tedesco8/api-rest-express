@@ -5,7 +5,8 @@ const { compareSync, hashSync, genSaltSync } = require("bcryptjs");
 const UserSchema = new Schema({
   name: { type: String, required: true },
   username: { type: String, required: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  imgUser: {type: String}
 });
 
 UserSchema.methods.toJSON = function() {

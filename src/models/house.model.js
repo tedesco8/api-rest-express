@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const HouseSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
+  imgCard: {type: String},
   upvotes: [{ type: Boolean }],
   downvotes: [{ type: Boolean }],
   author: {
