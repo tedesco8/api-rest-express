@@ -1,15 +1,15 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Backend ::ShareYourIdea:: App",
+    "description": "Backend ::House-Buy:: App",
     "version": "1.0.0",
-    "title": "Swagger ShareYourIdea",
+    "title": "Swagger House-Buy Api",
     "contact": {
-      "email": "marluanespiritusantoguerrero@gmail.com"
+      "email": "development@tedesco.es"
     },
     "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "name": "MIT",
+      "url": "https://github.com/tedesco8/home-buy-api/blob/main/LICENSE"
     }
   },
   "host": "localhost:5000",
@@ -18,10 +18,76 @@
     {
       "name": "User",
       "description": "Everything about users"
+    },
+    {
+      "name": "House",
+      "description": "Everything about houses"
     }
   ],
   "schemes": ["http", "https"],
   "paths": {
+    "/auth/signin": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Login",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "object",
+            "in": "body",
+            "type": "object",
+            "description": "Objects",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create user",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "object",
+            "in": "body",
+            "type": "object",
+            "description": "Objects",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
+    },
     "/user": {
       "get": {
         "tags": ["User"],
@@ -104,7 +170,7 @@
           {
             "in": "header",
             "name": "Authorization",
-            "description": "Authorization header fOr JWT",
+            "description": "Authorization header for JWT",
             "required": true,
             "type": "string"
           }
@@ -160,6 +226,181 @@
           }
         }
       }
+    },
+    "/house": {
+      "get": {
+        "tags": ["House"],
+        "summary": "Finds All the Houses",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "pageNum",
+            "type": "number",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "pageSize",
+            "type": "number",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
+      "post": {
+        "tags": ["House"],
+        "summary": "Create house",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "object",
+            "in": "body",
+            "type": "model schema",
+            "description": "Objects",
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization header for JWT",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/House"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
+    },
+    "/houses/{id}": {
+      "get": {
+        "tags": ["House"],
+        "summary": "Find one house",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "description": "House Id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/House"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["House"],
+        "summary": "Update one house",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "description": "House Id",
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization header for JWT",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/House"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["House"],
+        "summary": "Delete one house",
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "description": "House Id",
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Authorization header for JWT",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/House"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -172,11 +413,64 @@
         "name": {
           "type": "string"
         },
+        "imgUser": {
+          "type": "string"
+        },
         "username": {
           "type": "string"
         },
         "password": {
           "type": "string"
+        }
+      }
+    },
+    "House": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imgCard": {
+          "type": "string"
+        },
+        "upvotes": {
+          "type": "boolean"
+        },
+        "downvotes": {
+          "type": "boolean"
+        },
+        "author": {
+          "type": "ObjectId"
+        },
+        "comments": {
+          "type": "ObjectId"
+        },
+        "start": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "mts": {
+          "type": "number"
+        },
+        "bed_rooms": {
+          "type": "number"
+        },
+        "bath_rooms": {
+          "type": "number"
+        },
+        "wifi": {
+          "type": "boolean"
         }
       }
     }
