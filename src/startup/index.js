@@ -1,5 +1,4 @@
 const express = require("express");
-const morgan = require('morgan');
 
 let _express = null;
 let _config = null;
@@ -19,7 +18,6 @@ class Server {
 
         resolve();
       });
-      _express.use(morgan('dev'));
     });
   }
 }
