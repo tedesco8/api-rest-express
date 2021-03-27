@@ -1,5 +1,5 @@
 {
-  "name": "home-buy-api",
+  "name": "api-rest-express",
   "version": "1.0.0",
   "description": "Api Restfull Clean Arquitecture",
   "main": "index.js",
