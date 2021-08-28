@@ -1,5 +1,6 @@
 # api-rest-express
 _RESTful API implementando Clean Architecture
+_Este proyecto es una API desarrollada con Node.js y Express con el objetivo de ser utilizada de manera multipropósito, aprovechando su estructura y buenas prácticas.
 
 ## Comenzando 🚀
 
@@ -11,12 +12,12 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 _Que cosas necesitas para instalar el software y como instalarlas_
 
 ```
-Lo primero que necesitas para comenzar a usar el software es tener Node.js instalado en tu sistema y una base de datos Mongodb.
+Lo primero que necesitas hacer es crear un fork de este proyecto y clonarlo. Para comenzar a usar el software es necesario tener Node.js instalado en tu sistema y una instancia de base de datos Mongodb.
 ```
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes hacer para tener un entorno de desarrollo ejecutandose_
+_Una vez clonado el fork e instalado Node.js en tu sistema, podras instalar las dependencias del proyecto siguiendo estos pasos;_
 
 _Instala las dependencias del proyecto_
 
@@ -24,10 +25,16 @@ _Instala las dependencias del proyecto_
 npm install
 ```
 
-_Agrega un archivo .env a la raiz y pon tus credenciales_
+_Agrega un archivo .env a la raiz del proyecto y pon tus credenciales_
 
 ```
 touch .env
+PORT_DEV=5000
+MONGO_URI="mongodb+srv://{usr}:{pwd}@{instancia_mongo}/{nombre_db}?retryWrites=true&w=majority"
+APPLICATION_NAME="el nombre de tu proyecto"
+JWT_SECRET={vf3534%#$fvdghg345$#%#}
+CACHE_KEY=myStrongPassword
+SWAGGER_DOC=swaggerPROD
 ```
 
 _Ejecuta el proyecto_
@@ -39,13 +46,13 @@ npm run dev
 
 * [Node](https://nodejs.dev/) - Entorno de ejecución
 * [Express](https://expressjs.com/es/) - Framework Backend
-* [mongoose](https://mongoosejs.com/) - ORM
+* [Mongoose](https://mongoosejs.com/) - ORM
 * [Awilix](https://github.com/jeffijoe/awilix) - Inyección de dependencias
-* [compression](https://www.npmjs.com/package/compression) - compresor de respuestas
-* [helmet](https://helmetjs.github.io/) - Seguridad en cabeceras HTTP
-* [jest](https://jestjs.io/) - Testing
-
-* [swagger-ui-express](http://raw.githack.com/MrRio/jsPDF/master/docs/index.html) - documentación
+* [Compression](https://www.npmjs.com/package/compression) - Compresor de respuestas
+* [Helmet](https://helmetjs.github.io/) - Seguridad en cabeceras HTTP
+* [Morgan](https://www.npmjs.com/package/morgan) - Registro de solicitudes
+* [Jest](https://jestjs.io/) - Testing
+* [Swagger](http://raw.githack.com/MrRio/jsPDF/master/docs/index.html) - documentación
 ## Versionado 📌
 
 Usamos [GitHub](https://github.com/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
