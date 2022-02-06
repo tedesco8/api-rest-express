@@ -1,34 +1,22 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const HouseSchema = new Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  imgCard: {type: String},
-  upvotes: [{ type: Boolean }],
-  downvotes: [{ type: Boolean }],
-  author: {
+const ArticleSchema = new Schema({
+  name: { type: String, maxlength: 50, unique: true, required: true },
+  description: { type: String, maxlength: 50, required: false },
+  category: {
     type: Schema.Types.ObjectId,
-    ref: "user",
+    ref: "category",
     required: true,
-    autopopulate: true
+    autopopulate: true,
   },
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "comment",
-      required: true,
-      autopopulate: true
-    }
-  ],
-  start: { type: String, required: true },
-  location: { type: String, required: true },
-  price: { type: String, required: true },
-  mts: { type: Number, required: true },
-  bed_rooms: { type: Number, required: true },
-  bath_rooms: { type: Number, required: true },
-  wifi: { type: Boolean, required: false, default: false },
+  code: { type: String, maxlength: 64, required: false },
+  sale_price: { type: Number, required: true },
+  cost_price: { type: Number, required: true },
+  stock: { type: Number, default: 0 },
+  status: { type: Number, default: 1 },
+  createAt: { type: Date, default: Date.now },
 });
 
-HouseSchema.plugin(require("mongoose-autopopulate"));
-module.exports = mongoose.model("house", HouseSchema);
+ArticleSchema.plugin(require("mongoose-autopopulate"));
+module.exports = mongoose.model("article", ArticleSchema);
