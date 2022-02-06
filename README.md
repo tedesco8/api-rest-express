@@ -29,12 +29,15 @@ _Agrega un archivo .env a la raiz del proyecto y pon tus credenciales_
 
 ```
 touch .env
-PORT_DEV=5000
-MONGO_URI="mongodb+srv://{usr}:{pwd}@{instancia_mongo}/{nombre_db}?retryWrites=true&w=majority"
-APPLICATION_NAME="el nombre de tu proyecto"
-JWT_SECRET={vf3534%#$fvdghg345$#%#}
-CACHE_KEY=myStrongPassword
-SWAGGER_DOC=swaggerPROD
+
+PORT=<PORT>
+MONGO_URI=<MONGO_URI>
+APPLICATION_NAME=<APPLICATION_NAME>
+JWT_SECRET=<JWT_SECRET>
+CACHE_KEY=<CACHE_KEY>
+SWAGGER_DOC=swaggerDEV
+ZOOM_API_KEY=<ZOOM_API_KEY>
+ZOOM_API_SECRET=<ZOOM_API_SECRET>
 ```
 
 _Ejecuta el proyecto_

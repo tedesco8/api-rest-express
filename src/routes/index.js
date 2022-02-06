@@ -12,7 +12,7 @@ const swaggerDocument = require(SWAGGER_PATH);
 module.exports = function({
   HomeRoutes,
   UserRoutes,
-  HouseRoutes,
+  ArticleRoutes,
   CommentRoutes,
   AuthRoutes
 }) {
@@ -27,7 +27,7 @@ module.exports = function({
 
   apiRoutes.use("/home", HomeRoutes);
   apiRoutes.use("/user", UserRoutes);
-  apiRoutes.use("/house", HouseRoutes);
+  apiRoutes.use("/house", ArticleRoutes);
   apiRoutes.use("/comment", CommentRoutes);
   apiRoutes.use("/auth", AuthRoutes);
 

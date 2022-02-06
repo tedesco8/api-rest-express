@@ -1,5 +1,5 @@
 module.exports = {
   UserRepository: require("./user.repository"),
-  HouseRepository: require("./house.repository"),
+  ArticleRepository: require("./article.repository"),
   CommentRepository: require("./comment.repository")
 };
