@@ -11,7 +11,7 @@ const {
   HomeRoutes,
   UserRoutes,
   ArticleRoutes,
-  CommentRoutes,
+  CategoryRoutes,
   AuthRoutes,
 } = require("../routes/index.routes");
 
@@ -20,7 +20,7 @@ const {
   HomeController,
   UserController,
   ArticleController,
-  CommentController,
+  CategoryController,
   AuthController,
 } = require("../controllers");
 
@@ -29,7 +29,7 @@ const {
   HomeService,
   UserService,
   ArticleService,
-  CommentService,
+  CategoryService,
   AuthService,
 } = require("../services");
 
@@ -37,11 +37,11 @@ const {
 const {
   UserRepository,
   ArticleRepository,
-  CommentRepository,
+  CategoryRepository,
 } = require("../repositories");
 
 // models
-const { User, Comment, ArticleModel } = require("../models");
+const { User, CategoryModel, ArticleModel } = require("../models");
 
 const container = createContainer();
 
@@ -55,7 +55,7 @@ container
     HomeRoutes: asFunction(HomeRoutes).singleton(),
     UserRoutes: asFunction(UserRoutes).singleton(),
     ArticleRoutes: asFunction(ArticleRoutes).singleton(),
-    CommentRoutes: asFunction(CommentRoutes).singleton(),
+    CategoryRoutes: asFunction(CategoryRoutes).singleton(),
     AuthRoutes: asFunction(AuthRoutes).singleton(),
   })
   .register({
@@ -63,26 +63,26 @@ container
     UserController: asClass(UserController.bind(UserController)).singleton(),
     ArticleController: asClass(ArticleController.bind(ArticleController)).singleton(),
     AuthController: asClass(AuthController.bind(AuthController)).singleton(),
-    CommentController: asClass(
-      CommentController.bind(CommentController)
+    CategoryController: asClass(
+      CategoryController.bind(CategoryController)
     ).singleton(),
   })
   .register({
     HomeService: asClass(HomeService).singleton(),
     UserService: asClass(UserService).singleton(),
-    CommentService: asClass(CommentService).singleton(),
+    CategoryService: asClass(CategoryService).singleton(),
     ArticleService: asClass(ArticleService).singleton(),
     AuthService: asClass(AuthService).singleton(),
   })
   .register({
     UserRepository: asClass(UserRepository).singleton(),
     ArticleRepository: asClass(ArticleRepository).singleton(),
-    CommentRepository: asClass(CommentRepository).singleton(),
+    CategoryRepository: asClass(CategoryRepository).singleton(),
   })
   .register({
     User: asValue(User),
     ArticleModel: asValue(ArticleModel),
-    Comment: asValue(Comment),
+    CategoryModel: asValue(CategoryModel),
   });
 
 module.exports = container;

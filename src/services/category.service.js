@@ -1,11 +1,11 @@
 const BaseService = require("./base.service");
-let _commentRepository = null,
+let _categoryRepository = null,
   _articleRepository = null;
 
-class CommentService extends BaseService {
-  constructor({ CommentRepository, ArticleRepository }) {
-    super(CommentRepository);
-    _commentRepository = CommentRepository;
+class CategoryService extends BaseService {
+  constructor({ CategoryRepository, ArticleRepository }) {
+    super(CategoryRepository);
+    _categoryRepository = CategoryRepository;
     _articleRepository = ArticleRepository;
   }
 
@@ -47,7 +47,7 @@ class CommentService extends BaseService {
       throw error;
     }
 
-    const createdComment = await _commentRepository.create({
+    const createdComment = await _categoryRepository.create({
       ...comment,
       author: userId
     });
@@ -57,4 +57,4 @@ class CommentService extends BaseService {
   }
 }
 
-module.exports = CommentService;
+module.exports = CategoryService;
