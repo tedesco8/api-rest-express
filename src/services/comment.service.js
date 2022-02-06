@@ -1,12 +1,12 @@
 const BaseService = require("./base.service");
 let _commentRepository = null,
-  _houseRepository = null;
+  _articleRepository = null;
 
 class CommentService extends BaseService {
-  constructor({ CommentRepository, HouseRepository }) {
+  constructor({ CommentRepository, ArticleRepository }) {
     super(CommentRepository);
     _commentRepository = CommentRepository;
-    _houseRepository = HouseRepository;
+    _articleRepository = ArticleRepository;
   }
 
   async getHouseComments(houseId) {
@@ -17,7 +17,7 @@ class CommentService extends BaseService {
       throw error;
     }
 
-    const house = await _houseRepository.get(houseId);
+    const house = await _articleRepository.get(houseId);
 
     if (!house) {
       const error = new Error();
@@ -38,7 +38,7 @@ class CommentService extends BaseService {
       throw error;
     }
 
-    const house = await _houseRepository.get(houseId);
+    const house = await _articleRepository.get(houseId);
 
     if (!house) {
       const error = new Error();
@@ -53,7 +53,7 @@ class CommentService extends BaseService {
     });
     house.comments.push(createdComment);
 
-    return await _houseRepository.update(houseId, { comments: house.comments });
+    return await _articleRepository.update(houseId, { comments: house.comments });
   }
 }
 
