@@ -1,6 +1,6 @@
 {
   "name": "api-rest-express",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Api Restfull Clean Arquitecture",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "rest",
     "node",
     "home",
-    "buy"
+    "buy",
+    "clean",
+    "arquitecture"
   ],
   "author": "Pablo Tedesco",
   "license": "MIT",

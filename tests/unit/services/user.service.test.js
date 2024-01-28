@@ -23,7 +23,7 @@ describe("User Service Tests", () => {
     UserRepository.getUserByUsername.mockReturnValue(user);
 
     const _userService = new UserService({ UserRepository });
-    const expected = await _userService.getUserByUsername(user.username);
+    const expected = await _userService.getByUsername(user.username);
     expect(expected).toMatchObject(user);
   });
 
