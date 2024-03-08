@@ -16,6 +16,12 @@ class UserController {
     return res.send(users);
   }
 
+  async create(req, res) {
+    const { body } = req;
+    const created = await _userService.create(body);
+    return res.status(201).send(created);
+  }
+
   async update(req, res) {
     const { body } = req;
     const { userId } = req.params;
